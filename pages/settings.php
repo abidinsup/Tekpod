@@ -96,7 +96,7 @@ $companyTagline = getSetting('company_tagline', 'Tracking Produksi Percetakan');
 
         <!-- Simpan Button Area -->
         <div class="card animate-fade-in-up" style="animation-delay: 0.3s;">
-            <div class="card-body" style="display: flex; justify-content: flex-end; align-items: center; gap: var(--space-4);">
+            <div class="card-body" style="display: flex; justify-content: flex-start; align-items: center; gap: var(--space-4);">
                 <span style="color: var(--text-muted); font-size: var(--font-size-sm);">Pastikan data sudah benar sebelum menyimpan.</span>
                 <button type="submit" class="btn btn-primary" id="btn-save-settings">
                     💾 Simpan Semua Pengaturan
