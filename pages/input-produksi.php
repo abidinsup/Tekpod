@@ -183,9 +183,6 @@ foreach ($allOrderProcs as $row) {
             <div class="form-group">
                 <label class="form-label" for="order_id" style="display:flex; justify-content:space-between; align-items:center;">
                     <span>Pilih Order <span class="required">*</span></span>
-                    <button type="button" class="btn btn-secondary btn-sm" onclick="openModal('addOrderModal')" style="padding:2px 10px; font-size:var(--font-size-xs);">
-                        ➕ Order Baru
-                    </button>
                 </label>
                 <select class="form-select" id="order_id" name="order_id" required onchange="handleOrderChange()">
                     <option value="">-- Pilih Order --</option>
@@ -329,33 +326,4 @@ foreach ($allOrderProcs as $row) {
     }
 </script>
 
-<!-- Add Order Modal -->
-<div class="modal-overlay" id="addOrderModal">
-    <div class="modal">
-        <div class="modal-header">
-            <h3 class="modal-title">Tambah Order Baru</h3>
-            <button class="modal-close" onclick="closeModal('addOrderModal')">&times;</button>
-        </div>
-        <div class="modal-body">
-            <form id="addOrderForm" method="POST" action="index.php?page=input-produksi">
-                <input type="hidden" name="action" value="create_order">
-                <div class="form-group">
-                    <label class="form-label" for="new_nama_job">Nama Order <span class="required">*</span></label>
-                    <input type="text" class="form-input" id="new_nama_job" name="nama_job" placeholder="Contoh: Brosur A4 Full Color" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="new_pelanggan">No PO / Nama Pelanggan <span class="required">*</span></label>
-                    <input type="text" class="form-input" id="new_pelanggan" name="pelanggan" placeholder="Contoh: PO-2026-001 / PT ABC" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="new_qty_order">Qty Order <span class="required">*</span></label>
-                    <input type="number" class="form-input" id="new_qty_order" name="qty_order" min="1" placeholder="Jumlah cetak (lembar/pcs)" required>
-                </div>
-            </form>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" onclick="closeModal('addOrderModal')">Batal</button>
-            <button type="submit" form="addOrderForm" class="btn btn-primary">💾 Simpan Order</button>
-        </div>
-    </div>
-</div>
+

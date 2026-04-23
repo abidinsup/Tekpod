@@ -140,11 +140,7 @@ else $greeting = 'Selamat Malam';
             <div style="position:relative;">
                 <input type="text" class="form-input" id="searchOrders" placeholder="🔍  Cari order..." style="width:220px; padding-left: var(--space-4); font-size: var(--font-size-sm);">
             </div>
-            <?php if (in_array($role, ['owner', 'supervisor', 'operator'])): ?>
-            <button class="btn btn-primary btn-sm" onclick="openModal('addOrderModal')">
-                ➕ Tambah Order
-            </button>
-            <?php endif; ?>
+
         </div>
     </div>
 
@@ -283,56 +279,7 @@ else $greeting = 'Selamat Malam';
     </div>
 </div>
 
-<?php if (in_array($role, ['owner', 'supervisor', 'operator'])): ?>
-<!-- Add Order Modal -->
-<div class="modal-overlay" id="addOrderModal">
-    <div class="modal">
-        <div class="modal-header">
-            <h3 class="modal-title">Tambah Order Baru</h3>
-            <button class="modal-close" onclick="closeModal('addOrderModal')">&times;</button>
-        </div>
-        <div class="modal-body">
-            <form id="addOrderForm" method="POST" action="index.php?page=dashboard">
-                <input type="hidden" name="action" value="add_order">
-                <div class="form-group">
-                    <label class="form-label" for="nama_job">Nama Job <span class="required">*</span></label>
-                    <input type="text" class="form-input" id="nama_job" name="nama_job" placeholder="Contoh: Box Packaging Premium" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="pelanggan">Pelanggan <span class="required">*</span></label>
-                    <input type="text" class="form-input" id="pelanggan" name="pelanggan" placeholder="Nama Perusahaan / Klien" required>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label class="form-label" for="qty_order">Qty Order <span class="required">*</span></label>
-                        <input type="number" class="form-input" id="qty_order" name="qty_order" min="1" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="tanggal_mulai">Tanggal Mulai <span class="required">*</span></label>
-                        <input type="date" class="form-input" id="tanggal_mulai" name="tanggal_mulai" value="<?= date('Y-m-d') ?>" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Proses Produksi <span class="required">*</span></label>
-                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:var(--space-2); margin-top:var(--space-1);">
-                        <?php foreach ($processes as $proc): ?>
-                        <label style="display:flex;align-items:center;gap:var(--space-2);cursor:pointer;">
-                            <input type="checkbox" name="processes[]" value="<?= $proc['id'] ?>" <?= $proc['id'] == 1 || $proc['id'] == 7 ? 'checked' : '' ?>>
-                            <span><?= $proc['icon'] ?> <?= $proc['nama_proses'] ?></span>
-                        </label>
-                        <?php endforeach; ?>
-                    </div>
-                    <small style="color:var(--text-muted);font-size:12px;">Pilih proses yang diperlukan untuk order ini.</small>
-                </div>
-            </form>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" onclick="closeModal('addOrderModal')">Batal</button>
-            <button type="submit" form="addOrderForm" class="btn btn-primary" id="btn-save-order">💾 Simpan Order</button>
-        </div>
-    </div>
-</div>
-<?php endif; ?>
+
 
 <!-- Hidden delete form -->
 <form id="deleteOrderForm" method="POST" action="index.php?page=dashboard" style="display:none;">
