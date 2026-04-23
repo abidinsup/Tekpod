@@ -1,0 +1,22 @@
+# Config files
+config.php
+
+# ZIP and Archive files
+*.zip
+*.rar
+*.7z
+
+# Executables
+*.exe
+
+# Local PHP Binaries/Folders
+php/
+php82/
+
+# Temp and Scratch files
+scratch/
+.DS_Store
+Thumbs.db
+
+# SQL dumps (optional, but keep it clean)
+# tekpod_db.sql
